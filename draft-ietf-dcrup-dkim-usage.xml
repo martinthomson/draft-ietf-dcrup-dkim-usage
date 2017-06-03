@@ -150,6 +150,18 @@
      </t>
    </section>
 
+   <section title="Key Management and Representation">
+     <t>This section updates the h= tag in <xref target="RFC6376"/> Section 3.6.1.</t>
+     <t>The following ABNF element is updated:</t>
+     <t><figure>
+          <artwork><![CDATA[
+      ABNF:
+
+      key-h-tag-alg   = "sha256" / x-key-h-tag-alg]]></artwork>
+        </figure>
+     </t>
+   </section>
+
    <section title="Security Considerations">
       <t> This document does not change the Security Considerations of
       <xref target="RFC6376"/>.  It reduces the risk of signature compromise
