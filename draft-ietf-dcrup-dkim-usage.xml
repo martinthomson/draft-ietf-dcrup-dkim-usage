@@ -129,6 +129,27 @@
    </section>
    </section>
 
+
+   <section title="The DKIM-Signature Header Field">
+     <t>This section updates the a= tag in <xref target="RFC6376"/> Section 3.5.</t>
+     <t>The text description of the tag is now:
+      <list style="hanging" hangIndent="6">
+      <t hangText="a="> The algorithm used to generate the signature (plain-text;
+      REQUIRED).  Verifiers MUST support "rsa-sha256"; Signers MUST sign using
+      "rsa-sha256".  See <xref target="RFC6376"/> Section 3.3 (as updated by this
+      document) for a description of the algorithms.</t>
+      </list>
+     </t>
+     <t>The following ABNF element is updated:</t>
+     <t><figure>
+          <artwork><![CDATA[
+      ABNF:
+
+      sig-a-tag-h     = "sha256" / x-sig-a-tag-h]]></artwork>
+        </figure>
+     </t>
+   </section>
+
    <section title="Security Considerations">
       <t> This document does not change the Security Considerations of
       <xref target="RFC6376"/>.  It reduces the risk of signature compromise
