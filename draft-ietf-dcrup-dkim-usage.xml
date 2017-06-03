@@ -49,10 +49,12 @@
 	stored in a TXT record.
 	The defining documents specify a single signing algorithm, <xref target="RFC8017">RSA</xref>,
 	and recommends key sizes of 1024 to 2048 bits (but require verification of 512 bit keys).
-	While 1024 bit signatures are common, stronger signatures are not.
-	Widely used DNS configuration software places a practical limit on key sizes, because
-	the software only handles a single 256 octet string in a TXT record, and RSA keys longer
-	than 1024 bits don't fit in 256 octets.
+        As discussed in <xref target="VULNOTE">US-CERT VU#268267</xref>, the operational
+        community has recognized that shorter keys compromise the effectiveness of DKIM.
+	While 1024 bit signatures are common, stronger signatures are not.  Widely used DNS
+        configuration software places a practical limit on key sizes, because the software only
+        handles a single 256 octet string in a TXT record, and RSA keys longer than 1024 bits don't
+        fit in 256 octets.
      </t>
    </section>
    
@@ -158,6 +160,18 @@
       <?rfc include="reference.RFC.3766" ?>
       <?rfc include="reference.RFC.6376" ?>
       <?rfc include="reference.RFC.8017" ?>
+   </references>
+   <references title="Informative References">
+      <reference anchor="VULNOTE">
+         <front>
+            <title>Vulnerability Note VU#268267, DomainKeys Identified Mail (DKIM) Verifiers may inappropriately convey message trust</title>
+            <author>
+               <organization>US-CERT</organization>
+            </author>
+            <date day="24" month="October" year="2012" />
+         </front>
+         <format type="HTML" target="http://www.kb.cert.org/vuls/id/268267"/>
+     </reference>
    </references>
    <section anchor="thanks" title="Acknowledgements">
       <t> The author wishes to acknowledge the following for their
