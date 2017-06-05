@@ -165,7 +165,8 @@
    <section title="Security Considerations">
       <t> This document does not change the Security Considerations of
       <xref target="RFC6376"/>.  It reduces the risk of signature compromise
-      due to weak cryptography.</t>
+      due to weak cryptography.  The SHA-1 risks discussed in
+      <xref target="RFC6194"/> Section 3 are resolved.</t>
    </section>
 
    <section title="IANA Considerations">
@@ -204,7 +205,8 @@
             <date day="24" month="October" year="2012" />
          </front>
          <format type="HTML" target="http://www.kb.cert.org/vuls/id/268267"/>
-     </reference>
+      </reference>
+      <?rfc include="reference.RFC.6194" ?>
    </references>
    <section anchor="thanks" title="Acknowledgements">
       <t> The author wishes to acknowledge the following for their
