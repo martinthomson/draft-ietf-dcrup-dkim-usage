@@ -68,15 +68,9 @@
      <t>This section replaces <xref target="RFC6376"/> Section 3.3 in its
      entirety.</t>
      
-     <t>DKIM supports multiple digital signature algorithms.  Two algorithms
-     were defined by <xref target="RFC6376"/>: rsa-sha1 and rsa-sha256.  Signers
-     MUST implement and sign using rsa-sha256.  Verifiers MUST implement
-     rsa-sha256.  The rsa-sha1 signing algorithm is obsolete and MUST NOT be
-     used.</t>
-
-   <section title="The rsa-sha1 Signing Algorithm">
-     <t>This algorithm is obsolete and MUST NOT be used.</t>
-   </section>
+     <t>Generally, DKIM supports multiple digital signature algorithms.  One
+     algorithms, rsa-sha256, is currenlty defined.  Signers MUST implement and
+     sign using rsa-sha256.  Verifiers MUST implement rsa-sha256.</t>
 
    <section title="The rsa-sha256 Signing Algorithm">
      <t>The rsa-sha256 Signing Algorithm computes a message hash as described in
@@ -166,7 +160,8 @@
       <t> This document does not change the Security Considerations of
       <xref target="RFC6376"/>.  It reduces the risk of signature compromise
       due to weak cryptography.  The SHA-1 risks discussed in
-      <xref target="RFC6194"/> Section 3 are resolved.</t>
+      <xref target="RFC6194"/> Section 3 are resolved due to the removal of
+      rsa-sha1 from DKIM..</t>
    </section>
 
    <section title="IANA Considerations">
