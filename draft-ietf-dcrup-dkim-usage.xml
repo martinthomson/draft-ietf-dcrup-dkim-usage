@@ -205,8 +205,9 @@
    </references>
    <section anchor="thanks" title="Acknowledgements">
       <t> The author wishes to acknowledge the following for their
-      review and constructive criticism of this proposal:
-      TBD (surely there will be someone). </t>
+      review and comment on this proposal:
+      Kurt Andersen, Murray S. Kucherawy, Martin Thomson, John Levine,
+      Russ Housley, and Jim Fenton. </t>
       <t> Thanks to John Levine for draft-ietf-dcrup-dkim-crypto-00, which was
           the source for much of the introductory material in this draft. </t>
     </section>
