@@ -69,7 +69,7 @@
      entirety.</t>
      
      <t>Generally, DKIM supports multiple digital signature algorithms.  One
-     algorithms, rsa-sha256, is currenlty defined.  Signers MUST implement and
+     algorithm, rsa-sha256, is currenlty defined.  Signers MUST implement and
      sign using rsa-sha256.  Verifiers MUST implement rsa-sha256.</t>
 
    <section title="The rsa-sha256 Signing Algorithm">
@@ -107,7 +107,7 @@
        <t>Keys can be replaced on a regular basis; thus, their lifetime can
        be relatively short</t>
 
-       <t>The security goals of DKIM,<xref target="RFC6376"/>, are modest
+       <t>The security goals of DKIM <xref target="RFC6376"/> are modest
        compared to typical goals of other systems that employ digital
        signatures</t>
    </list></t>
@@ -165,10 +165,8 @@
    </section>
 
    <section title="IANA Considerations">
-     <t>IANA is requested to update registries as follows.
-     </t>
-     <section title="DKIM Hash Algorithms">
-	<t>The following value is changed in the DKIM Hash Algorithms</t>
+     <t>IANA is requested to update the "sha1" registration in the "DKIM Hash
+        Algorithms" as follows:</t>
       <texttable anchor="dkimhashtag"
                  title="DKIM Hash Algorithms Changed Value">
         <ttcol align="center">TYPE</ttcol>
@@ -179,7 +177,6 @@
         <c>(this document)</c>
         <c>obsolete</c>
       </texttable>
-     </section>
    </section>
  </middle>
 
