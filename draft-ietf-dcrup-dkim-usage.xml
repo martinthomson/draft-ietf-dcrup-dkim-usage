@@ -161,7 +161,7 @@
       <xref target="RFC6376"/>.  It reduces the risk of signature compromise
       due to weak cryptography.  The SHA-1 risks discussed in
       <xref target="RFC6194"/> Section 3 are resolved due to the removal of
-      rsa-sha1 from DKIM..</t>
+      rsa-sha1 from DKIM.</t>
    </section>
 
    <section title="IANA Considerations">
