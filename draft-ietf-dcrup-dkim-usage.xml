@@ -5,7 +5,7 @@
 <?rfc sortrefs="yes"?>
 <?rfc symrefs="yes"?>
 <?rfc compact="yes"?>
-<rfc category="std" docName="draft-ietf-dcrup-dkim-usage-02" ipr="trust200902" updates="6376">
+<rfc category="std" docName="draft-ietf-dcrup-dkim-usage-03" ipr="trust200902" updates="6376">
  <front>
    <title abbrev="DKIM Crypto Usage Update">Cryptographic Algorithm and Key Usage Update to DKIM</title>
 
