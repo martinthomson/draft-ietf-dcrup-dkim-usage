@@ -47,6 +47,8 @@
 	headers and content and signing the header hash with a digital signature.
 	Message recipients fetch the signature verification key from the DNS where it is
 	stored in a TXT record.
+     </t>
+     <t>
 	The defining documents specify a single signing algorithm, <xref target="RFC8017">RSA</xref>,
 	and recommends key sizes of 1024 to 2048 bits (but require verification of 512 bit keys).
         As discussed in <xref target="VULNOTE">US-CERT VU#268267</xref>, the operational
@@ -65,103 +67,24 @@
    </section>
 
    <section title="DKIM Signing and Verification Algorithms">
-     <t>This section replaces <xref target="RFC6376"/> Section 3.3 in its
-     entirety.</t>
-     
-     <t>Generally, DKIM supports multiple digital signature algorithms.  One
-     algorithm, rsa-sha256, is currenlty defined.  Signers MUST implement and
-     sign using rsa-sha256.  Verifiers MUST implement rsa-sha256.</t>
+     <t><xref target="RFC6376">DKIM</xref> defines two signature algorithms:
+     rsa-sha1 and rsa-sha256.  This document updates RFC 6376 in two ways:
 
-   <section title="The rsa-sha256 Signing Algorithm">
-     <t>The rsa-sha256 Signing Algorithm computes a message hash as described in
-     <xref target="RFC6376"/>, Section 3.7 using SHA-256 [FIPS-180-3-2008] as
-     the hash-alg.  That hash is then signed by the Signer using the RSA
-     algorithm (defined in PKCS#1 version 1.5 <xref target="RFC8017"/>) as the
-     crypt-alg and the Signer's private key.  The hash MUST NOT be truncated or
-     converted into any form other than the native binary form before being
-     signed.  The signing algorithm SHOULD use a public exponent of 65537.</t>
-   </section>
+     <list style="numbers">
+       <t>DKIM implementations MUST implement the rsa-sha256 algorithm.  Signers
+       MUST use the rsa-sha256 algorithm.</t>
 
-   <section title="Key Sizes">
-   <t>Selecting appropriate key sizes is a trade-off between cost,
-   performance, and risk.  Since short RSA keys more easily succumb to
-   off-line attacks, Signers MUST use RSA keys of at least 1024 bits for
-   all keys.  Verifiers MUST be able to validate signatures with
-   keys ranging from 1024 bits to 4096 bits, and they MAY be able to
-   validate signatures with larger keys.  Verifier policies can use the
-   length of the signing key as one metric for determining whether a
-   signature is acceptable.</t>
-
-   <t>Factors that should influence the key size choice include the
-       following:
-       
-   <list style="symbols">
-       <t>The practical constraint that large (e.g., 4096-bit) keys might
-       not fit within a 512-byte DNS UDP response packet</t>
-
-       <t>The security constraint that keys smaller than 2048 bits may be
-       subject to off-line attacks</t>
-
-       <t>Larger keys impose higher CPU costs to verify and sign email</t>
-
-       <t>Keys can be replaced on a regular basis; thus, their lifetime can
-       be relatively short</t>
-
-       <t>The security goals of DKIM <xref target="RFC6376"/> are modest
-       compared to typical goals of other systems that employ digital
-       signatures</t>
-   </list></t>
-
-   <t>See <xref target="RFC3766"/> for further discussion on selecting key
-   sizes.</t>
-   </section>
-
-   <section title="Other Algorithms">
-
-   <t>Other algorithms will be defined in the future.  Verifiers MUST ignore
-   any signatures using algorithms that they do not implement.</t>
-   </section>
-   </section>
-
-
-   <section title="The DKIM-Signature Header Field">
-     <t>This section updates the a= tag in <xref target="RFC6376"/> Section 3.5.</t>
-     <t>The text description of the tag is now:
-      <list style="hanging" hangIndent="6">
-      <t hangText="a="> The algorithm used to generate the signature (plain-text;
-      REQUIRED).  Verifiers MUST support "rsa-sha256"; Signers MUST sign using
-      "rsa-sha256".  See <xref target="RFC6376"/> Section 3.3 (as updated by this
-      document) for a description of the algorithms.</t>
-      </list>
-     </t>
-     <t>The following ABNF element is updated:</t>
-     <t><figure>
-          <artwork><![CDATA[
-      ABNF:
-
-      sig-a-tag-h     = "sha256" / x-sig-a-tag-h]]></artwork>
-        </figure>
-     </t>
-   </section>
-
-   <section title="Key Management and Representation">
-     <t>This section updates the h= tag in <xref target="RFC6376"/> Section 3.6.1.</t>
-     <t>The following ABNF element is updated:</t>
-     <t><figure>
-          <artwork><![CDATA[
-      ABNF:
-
-      key-h-tag-alg   = "sha256" / x-key-h-tag-alg]]></artwork>
-        </figure>
+       <t>Verifiers MUST NOT rely on the rsa-sha1 algorithm.</t>
+     </list>
      </t>
    </section>
 
    <section title="Security Considerations">
-      <t> This document does not change the Security Considerations of
-      <xref target="RFC6376"/>.  It reduces the risk of signature compromise
-      due to weak cryptography.  The SHA-1 risks discussed in
-      <xref target="RFC6194"/> Section 3 are resolved due to the removal of
-      rsa-sha1 from DKIM.</t>
+      <t> This document does not change the Security Considerations of <xref
+      target="RFC6376"/>.  It reduces the risk of signature compromise due to
+      weak cryptography.  The SHA-1 risks discussed in Section 3 of <xref
+      target="RFC6194"/> are no longer relevant once a stronger algorithm is
+      available.</t>
    </section>
 
    <section title="IANA Considerations">
